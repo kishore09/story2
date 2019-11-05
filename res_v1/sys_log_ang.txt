@@ -1,0 +1,454 @@
+//sms
+
+
+
+Activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/fstTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="150dp"
+        android:text="Mobile No" />
+    <EditText
+        android:id="@+id/mblTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:inputType="number"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/secTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:layout_marginLeft="100dp" />
+    <EditText
+        android:id="@+id/msgTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:ems="10" />
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Send SMS" />
+</LinearLayout>
+
+
+MainActivity.java
+
+package com.m.sms;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etPhone, etMessage;
+    Button btnSendSMS;
+    PendingIntent sentPI, deliveredPI;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        etPhone = (EditText) findViewById(R.id.mblTxt);
+        etMessage = (EditText) findViewById(R.id.msgTxt);
+        btnSendSMS = (Button) findViewById(R.id.btnSend);
+
+        btnSendSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = etMessage.getText().toString();
+                String telNr = etPhone.getText().toString();
+
+                if(telNr.length()==10)
+                {
+
+
+                    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, 1);
+                        Toast.makeText(getApplicationContext(), "SMS not sent!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SmsManager sms = SmsManager.getDefault();
+                        sms.sendTextMessage(telNr, null, message, sentPI, deliveredPI);
+                        Toast.makeText(getApplicationContext(), "SMS sent successfully!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "SMS not sent !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter 10 digit number !", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+    }
+
+}
+
+
+
+
+
+manifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.m.sms">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+
+
+
+
+
+//Expenses manager
+
+
+
+
+
+Activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/fstTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="150dp"
+        android:text="Mobile No" />
+    <EditText
+        android:id="@+id/mblTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:inputType="number"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/secTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message"
+        android:layout_marginLeft="100dp" />
+    <EditText
+        android:id="@+id/msgTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:ems="10" />
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:text="Send SMS" />
+</LinearLayout>
+
+
+MainActivity.java
+
+package com.m.sms;
+
+import android.Manifest;
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+
+import android.os.Bundle;
+import android.telephony.SmsManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText etPhone, etMessage;
+    Button btnSendSMS;
+    PendingIntent sentPI, deliveredPI;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        etPhone = (EditText) findViewById(R.id.mblTxt);
+        etMessage = (EditText) findViewById(R.id.msgTxt);
+        btnSendSMS = (Button) findViewById(R.id.btnSend);
+
+        btnSendSMS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = etMessage.getText().toString();
+                String telNr = etPhone.getText().toString();
+
+                if(telNr.length()==10)
+                {
+
+
+                    if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, 1);
+                        Toast.makeText(getApplicationContext(), "SMS not sent!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        SmsManager sms = SmsManager.getDefault();
+                        sms.sendTextMessage(telNr, null, message, sentPI, deliveredPI);
+                        Toast.makeText(getApplicationContext(), "SMS sent successfully!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "SMS not sent !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter 10 digit number !", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
+    }
+
+}
+
+
+
+
+
+manifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.m.sms">
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+
+
+
+//helth monitor
+
+
+
+MainActivity.java 
+ 
+package com.example.healthmonitor; 
+ 
+import androidx.appcompat.app.AppCompatActivity; import android.database.Cursor; import android.os.Bundle; import android.view.View; import android.widget.EditText; import android.widget.TextView; import android.widget.Toast; 
+
+ public class MainActivity extends AppCompatActivity { DatabaseHelper db; EditText name; EditText age; EditText hb; EditText sugar; TextView tv; 
+ 
+    @Override     protected void onCreate(Bundle savedInstanceState) {         super.onCreate(savedInstanceState);         setContentView(R.layout.activity_main);         db = new DatabaseHelper(this);         name = (EditText) findViewById(R.id.et_name);         age = (EditText) findViewById(R.id.et_age);         hb = (EditText) findViewById(R.id.et_hb);         sugar = (EditText) findViewById(R.id.et_sugar);         tv= (TextView)findViewById(R.id.tv_report); 
+ 
+    } public void insert (View view) { 
+ 
+    boolean status = db.insert(name.getText().toString(), Integer.parseInt(age.getText().toString()), Integer.parseInt(hb.getText().toString()), Integer.parseInt(sugar.getText().toString()));      } 
+ 
+public void report(View view) {     Cursor c = db.select();   if (c.getCount() ==0)         return;     StringBuffer buf = new StringBuffer();         while (c.moveToNext()) {             buf.append ("Name: "+c.getString(1));             buf.append (" Age: "+c.getString(2));             buf.append (" Hemoglobin: "+c.getString(3));             buf.append (" Sugar: "+c.getString(4)); 
+            buf.append("\n");         }         tv.setText(buf); 
+ 
+} 
+ 
+    public void cleartext (View view) {         name.setText("");         age.setText("");         hb.setText("");         sugar.setText("");     } 
+ 
+} 
+ 
+DatabaseHelper.java package com.example.healthmonitor; import android.content.ContentValues; import android.content.Context; import android.database.Cursor; import android.database.sqlite.SQLiteDatabase; import android.database.sqlite.SQLiteOpenHelper; 
+ 
+public class DatabaseHelper extends SQLiteOpenHelper {         DatabaseHelper (Context context) {         super(context, "Health.db",null,1);     }     @Override     public void onCreate (SQLiteDatabase sqLiteDatabase) {             sqLiteDatabase.execSQL("CREATE TABLE LAB ( PATID integer PRIMARY KEY AUTOINCREMENT, PANAME TEXT, AGE INTEGER, HM INTEGER, SUGAR INTEGER );");     }     @Override     public void onUpgrade (SQLiteDatabase sqLiteDatabase, int i, int i1) {         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LAB ");         onCreate(sqLiteDatabase);     } 
+
+     public boolean insert (String name, int age, int hb, int sug) {         SQLiteDatabase db = this.getWritableDatabase();         ContentValues cv = new ContentValues();         cv.put("PANAME", name);         cv.put("AGE", age);         cv.put("HM",hb);         cv.put("SUGAR",sug); 
+ 
+        long status = db.insert("LAB",null,cv);         if (status == -1)             return false;         else             return true;     } 
+ 
+    public Cursor select() {         SQLiteDatabase db = this.getWritableDatabase();         Cursor cr = db.rawQuery("SELECT * FROM LAB", null);         return cr;     } } 
+ 
+ 
+
+
+
+////map view 
+
+
+
+
+
+Activity_main.xml 
+ 
+<?xml version="1.0" encoding="utf-8"?> <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:app="http://schemas.android.com/apk/res-auto"     xmlns:tools="http://schemas.android.com/tools"     android:layout_width="match_parent"     android:layout_height="match_parent"     tools:context=".MainActivity"> 
+ 
+    <fragment         android:layout_width="match_parent"         android:layout_height="match_parent"         android:id="@+id/google_map"         android:name="com.google.android.gms.maps.SupportMapFragment"/> 
+ 
+</androidx.constraintlayout.widget.ConstraintLayout> 
+ 
+ 
+MainActivity.java 
+ 
+package com.m.collegelocation; 
+ 
+import androidx.annotation.NonNull; import androidx.appcompat.app.AppCompatActivity; import androidx.core.app.ActivityCompat; import androidx.fragment.app.FragmentActivity; 
+ 
+import android.Manifest; import android.content.pm.PackageManager; import android.location.Location; import android.os.Bundle; import android.widget.Toast; 
+ 
+import com.google.android.gms.location.FusedLocationProviderClient; import com.google.android.gms.location.LocationServices; import com.google.android.gms.maps.CameraUpdate; import com.google.android.gms.maps.CameraUpdateFactory; import com.google.android.gms.maps.GoogleMap; import com.google.android.gms.maps.OnMapReadyCallback; import com.google.android.gms.maps.SupportMapFragment; import com.google.android.gms.maps.model.LatLng; import com.google.android.gms.maps.model.MarkerOptions; import com.google.android.gms.tasks.OnSuccessListener; import com.google.android.gms.tasks.Task; 
+ 
+import java.security.KeyStore; 
+ 
+public class MainActivity extends FragmentActivity implements OnMapReadyCallback { GoogleMap nmap; 
+ 
+    @Override     protected void onCreate(Bundle savedInstanceState) {         super.onCreate(savedInstanceState);         setContentView(R.layout.activity_main);         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()                 .findFragmentById(R.id.google_map);         mapFragment.getMapAsync(this);     } 
+    @Override     public void onMapReady(GoogleMap googleMap) {         nmap = googleMap;         nmap.getUiSettings().setZoomControlsEnabled(true);         nmap.setMyLocationEnabled(true);     } } 
+ 
+ 
+manifest.xml 
+ 
+<?xml version="1.0" encoding="utf-8"?> <manifest xmlns:android="http://schemas.android.com/apk/res/android"     package="com.m.collegelocation"> 
+ 
+    <uses-permission android:name="android.permission.INTERNET"/>     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>     <application         android:allowBackup="true"         android:icon="@mipmap/ic_launcher"         android:label="@string/app_name"         android:roundIcon="@mipmap/ic_launcher_round"         android:supportsRtl="true"         android:theme="@style/AppTheme">         <meta-data             android:name="com.google.android.geo.API_KEY"             android:value="@string/map_key" />         <activity android:name=".MainActivity">             <intent-filter>                 <action android:name="android.intent.action.MAIN" /> 
+ 
+                <category android:name="android.intent.category.LAUNCHER" />             </intent-filter>         </activity>     </application> 
+ 
+</manifest> 
+ 
+ 
+<resources>     <string name="app_name">CollegeLocation</string>     <string name="map_key" translatable="false">AIzaSyCz00CTIhpwtE8x6dS1ca_ttZ9kgrowPLE</string> </resources> 
+ 
+ 
+ 
+Latitude = 12.933453 Longitude = 77.691381 
+ 
+ 
+/// play music
+
+
+
+
+
+
+
+
+import android.app.Service; import android.content.Intent; import android.media.MediaPlayer; import android.os.IBinder; import android.provider.Settings; 
+ 
+import androidx.annotation.Nullable; 
+ 
+public class MediaService extends Service {         private MediaPlayer player;           @Nullable         @Override         public IBinder onBind(Intent intent) {             return null;         } 
+ 
+        @Override         public int onStartCommand(Intent intent, int flags, int startId) {             //getting systems default ringtone player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI); 
+ 
+ // player = MediaPlayer.create(this,R.raw.song3);   player.setLooping(true); 
+ 
+            //staring the player             player.start(); 
+ 
+   //start sticky means service will be explicity started and stopped             return START_STICKY;         }         @Override         public void onDestroy() {             super.onDestroy();             //stopping the player when service is destroyed             player.stop();         }     } 
+ 
+ 
+
+ 
+Add the Changes in MainActivity.java for button click 
+ 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener { 
+ 
+    private Button bStart;     private Button bStop; 
+ 
+    @Override     protected void onCreate(Bundle savedInstanceState) {         super.onCreate(savedInstanceState);         setContentView(R.layout.activity_main); 
+ 
+        //getting buttons from xml         bStart = (Button) findViewById(R.id.btnStart);         bStop = (Button) findViewById(R.id.btnStop); 
+ 
+        //attaching onclicklistener to buttons         bStart.setOnClickListener(this);         bStop.setOnClickListener(this);     } 
+ 
+    @Override     public void onClick(View view) {         if (view == bStart) {             //starting service             startService(new Intent(this, MediaService.class));         } else if (view == bStop) {             //stopping service             stopService(new Intent(this, MediaService.class));         }     } } 
+ 
+ 
+ 
+ 
+ 
+Add Service configuration in Manifest.XML file 
+<?xml version="1.0" encoding="utf-8"?> <manifest xmlns:android="http://schemas.android.com/apk/res/android"     package="com.example.myservice"> 
+ 
+    <application         android:allowBackup="true"         android:icon="@mipmap/ic_launcher"         android:label="@string/app_name"         android:roundIcon="@mipmap/ic_launcher_round"         android:supportsRtl="true"         android:theme="@style/AppTheme">         <activity android:name=".MainActivity">             <intent-filter>                 <action android:name="android.intent.action.MAIN" /> 
+ 
+                <category android:name="android.intent.category.LAUNCHER" />             </intent-filter>         </activity> 
+ 
+        <service android:name=".MediaService" />           </application> 
+ 
+</manifest> 
+ 
+ 
+ 
+ 
+ 
+
