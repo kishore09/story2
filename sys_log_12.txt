@@ -1,0 +1,208 @@
+Expens
+Expense manager
++++++++++++
+MainActivity.java 
+
+package com.example.expensemanager; 
+import androidx.appcompat.app.AppCompatActivity; 
+import android.os.Bundle; import android.view.View; import android.widget.EditText; 
+import android.widget.TextView; 
+import java.io.BufferedReader; import java.io.FileInputStream; import java.io.FileNotFoundException; import java.io.FileOutputStream; import java.io.InputStreamReader; 
+public class MainActivity extends AppCompatActivity { String s1, s2; 
+EditText et1, et2; TextView tv1; 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); et1=(EditText)findViewById(R.id.et_cat); et2=(EditText)findViewById(R.id.et_price); tv1=(TextView)findViewById(R.id.tv_output); 
+} 
+public void save (View view) { s1 = et1.getText().toString(); 
+s2 = s1+ " "+et2.getText().toString()+"\n"; try { 
+FileOutputStream fos = openFileOutput("file1.txt", MODE_APPEND); 
+fos.write(s2.getBytes()); } catch (FileNotFoundException e) { e.printStackTrace(); 
+} catch (Exception e){ 
+                    e.printStackTrace();
+} } 
+public void load (View v) { try { 
+FileInputStream fis = openFileInput("file1.txt"); InputStreamReader isr = new InputStreamReader(fis); BufferedReader br = new BufferedReader(isr); StringBuilder sb = new StringBuilder(); 
+String text; 
+while ((text=br.readLine())!= null) { sb.append(text); 
+sb.append("\n"); } 
+tv1.setText (sb.toString()); 
+} catch (FileNotFoundException e) { e.printStackTrace(); 
+} catch (Exception e) { e.printStackTrace(); 
+} } 
+} 
+Activity_main.xml 
+
+<?xml version="1.0" encoding="utf-8"?> <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity"> 
+<TextView android:id="@+id/textView5" android:layout_width="252dp" android:layout_height="40dp" android:text="Expense Manager" 
+android:textSize="25dp" android:textStyle="bold" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.566" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.041" /> 
+<TextView android:id="@+id/textView" 
+android:layout_width="80dp" android:layout_height="25dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp" android:text="CATEGORY" android:textSize="15dp" android:textStyle="bold" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.088" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.124" /> 
+<TextView android:id="@+id/textView2" android:layout_width="49dp" android:layout_height="31dp" android:layout_marginStart="8dp" android:layout_marginBottom="8dp" android:text="PRICE" android:textSize="15dp" android:textStyle="bold" 
+app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.168" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.22" /> 
+<Button android:id="@+id/insert_btn" android:layout_width="wrap_content" 
+android:layout_height="wrap_content"
+android:layout_marginStart="8dp"
+android:layout_marginTop="8dp"
+android:layout_marginEnd="8dp"
+android:layout_marginBottom="8dp"
+android:onClick="save"
+android:text="SAVE"
+android:textSize="15dp"
+android:textStyle="bold"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.267"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.347" /> 
+<Button android:id="@+id/report_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp" android:onClick="load" android:text="LOAD" android:textSize="15dp" android:textStyle="bold" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.742" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.351" /> 
+<TextView android:id="@+id/tv_output" 
+android:layout_width="281dp"
+android:layout_height="129dp"
+android:layout_marginStart="8dp"
+android:layout_marginTop="8dp"
+android:layout_marginEnd="8dp"
+android:layout_marginBottom="8dp"
+android:textSize="25dp"
+android:textStyle="bold"
+android:hint="result"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.537" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.713" /> 
+<EditText android:id="@+id/et_cat" android:layout_width="202dp" android:layout_height="40dp" android:layout_marginStart="8dp" android:layout_marginTop="8dp" android:layout_marginEnd="8dp" 
+android:layout_marginBottom="8dp" android:ems="10" android:inputType="textPersonName" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.711" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.116" /> 
+<EditText android:id="@+id/et_price" android:layout_width="193dp" android:layout_height="38dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:layout_marginBottom="8dp" android:ems="10" android:inputType="textPersonName" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.699" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" 
+app:layout_constraintVertical_bias="0.223" /> </androidx.constraintlayout.widget.ConstraintLayout> 
+
+
++++++++++++
+health
+
+MainActivity.java 
+
+package com.example.healthmonitor; 
+import androidx.appcompat.app.AppCompatActivity; import android.database.Cursor; import android.os.Bundle; import android.view.View; 
+import android.widget.EditText; import android.widget.TextView; import android.widget.Toast; 
+public class MainActivity extends AppCompatActivity { DatabaseHelper db; EditText name; EditText age; 
+EditText hb; EditText sugar; TextView tv; 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { 
+super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); db = new DatabaseHelper(this); name = (EditText) findViewById(R.id.et_name); age = (EditText) findViewById(R.id.et_age); 
+hb = (EditText) findViewById(R.id.et_hb); sugar = (EditText) findViewById(R.id.et_sugar); tv= (TextView)findViewById(R.id.tv_report); 
+} public void insert (View view) { 
+boolean status = db.insert(name.getText().toString(), Integer.parseInt(age.getText().toString()), Integer.parseInt(hb.getText().toString()), Integer.parseInt(sugar.getText().toString())); 
+} public void report(View view) { 
+Cursor c = db.select(); if (c.getCount() ==0) 
+return; StringBuffer buf = new StringBuffer(); 
+while (c.moveToNext()) { buf.append ("Name: "+c.getString(1)); buf.append (" Age: "+c.getString(2)); buf.append (" Hemoglobin: "+c.getString(3)); buf.append (" Sugar: "+c.getString(4)); 
+buf.append("\n"); } 
+tv.setText(buf); } 
+public void cleartext (View view) { name.setText(""); age.setText(""); hb.setText(""); sugar.setText(""); 
+} } 
+DatabaseHelper.java 
+
+package com.example.healthmonitor; import android.content.ContentValues; import android.content.Context; import android.database.Cursor; import android.database.sqlite.SQLiteDatabase; import android.database.sqlite.SQLiteOpenHelper; 
+public class DatabaseHelper extends SQLiteOpenHelper { DatabaseHelper (Context context) { super(context, "Health.db",null,1); 
+} 
+@Override 
+public void onCreate (SQLiteDatabase sqLiteDatabase) { sqLiteDatabase.execSQL("CREATE TABLE LAB ( PATID integer 
+PRIMARY KEY AUTOINCREMENT, PANAME TEXT, AGE INTEGER, HM INTEGER, SUGAR INTEGER );"); 
+} 
+@Override 
+public void onUpgrade (SQLiteDatabase sqLiteDatabase, int i, int i1) { sqLiteDatabase.execSQL("DROP TABLE IF EXISTS LAB "); onCreate(sqLiteDatabase); 
+} 
+public boolean insert (String name, int age, int hb, int sug) { SQLiteDatabase db = this.getWritableDatabase(); ContentValues cv = new ContentValues(); cv.put("PANAME", name); 
+cv.put("AGE", age); cv.put("HM",hb); cv.put("SUGAR",sug); 
+long status = db.insert("LAB",null,cv); if (status == -1) 
+return false; else 
+return true; } 
+public Cursor select() { SQLiteDatabase db = this.getWritableDatabase(); Cursor cr = db.rawQuery("SELECT * FROM LAB", null); return cr; 
+} } 
+
++++++++++++
+
+Maps
+
+Activity_main.xml 
+<?xml version="1.0" encoding="utf-8"?> <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context=".MainActivity"> 
+<fragment android:layout_width="match_parent" android:layout_height="match_parent" android:id="@+id/google_map" android:name="com.google.android.gms.maps.SupportMapFragment"/> 
+</androidx.constraintlayout.widget.ConstraintLayout> 
+MainActivity.java 
+package com.m.collegelocation; 
+import androidx.annotation.NonNull; import androidx.appcompat.app.AppCompatActivity; import androidx.core.app.ActivityCompat; import androidx.fragment.app.FragmentActivity; 
+import android.Manifest; import android.content.pm.PackageManager; import android.location.Location; import android.os.Bundle; import android.widget.Toast; 
+import com.google.android.gms.location.FusedLocationProviderClient; import com.google.android.gms.location.LocationServices; import com.google.android.gms.maps.CameraUpdate; import com.google.android.gms.maps.CameraUpdateFactory; 
+import com.google.android.gms.maps.GoogleMap; import com.google.android.gms.maps.OnMapReadyCallback; import com.google.android.gms.maps.SupportMapFragment; import com.google.android.gms.maps.model.LatLng; import com.google.android.gms.maps.model.MarkerOptions; import com.google.android.gms.tasks.OnSuccessListener; import com.google.android.gms.tasks.Task; 
+import java.security.KeyStore; public class MainActivity extends FragmentActivity implements OnMapReadyCallback { 
+GoogleMap nmap; 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); SupportMapFragment mapFragment = (SupportMapFragment) 
+getSupportFragmentManager() .findFragmentById(R.id.google_map); 
+mapFragment.getMapAsync(this); } 
+@Override 
+public void onMapReady(GoogleMap googleMap) { nmap = googleMap; nmap.getUiSettings().setZoomControlsEnabled(true); nmap.setMyLocationEnabled(true); 
+} } 
+manifest.xml 
+<?xml version="1.0" encoding="utf-8"?> <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+package="com.m.collegelocation"> 
+<uses-permission android:name="android.permission.INTERNET"/> <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <application 
+android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme"> 
+<meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/map_key" /> 
+<activity android:name=".MainActivity"> <intent-filter> 
+<action android:name="android.intent.action.MAIN" /> 
+<category android:name="android.intent.category.LAUNCHER" /> </intent-filter> 
+</activity> </application> 
+</manifest> 
+<resources> <string name="app_name">CollegeLocation</string> <string name="map_key" 
+translatable="false">AIzaSyCz00CTIhpwtE8x6dS1ca_ttZ9kgrowPLE</string> </resources> 
++++++++++++
+
+Create new class file and name it as MediaService. Enter the following program in the MediaService.java file 
+import android.app.Service; import android.content.Intent; import android.media.MediaPlayer; import android.os.IBinder; import android.provider.Settings; 
+import androidx.annotation.Nullable; public class MediaService extends Service { 
+private MediaPlayer player; 
+@Nullable @Override public IBinder onBind(Intent intent) { 
+return null; } 
+@Override 
+public int onStartCommand(Intent intent, int flags, int startId) { 
+            //getting systems default ringtone
+player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI); 
+// player = MediaPlayer.create(this,R.raw.song3); player.setLooping(true); 
+            //staring the player
+player.start(); 
+//start sticky means service will be explicity started and stopped 
+return START_STICKY; } 
+@Override 
+public void onDestroy() { 
+super.onDestroy(); //stopping the player when service is destroyed player.stop(); 
+} } 
+Add the Changes in MainActivity.java for button click 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener { 
+private Button bStart; private Button bStop; 
+} } 
+@Override 
+protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); setContentView(R.layout.activity_main); 
+    //getting buttons from xml
+bStart = (Button) findViewById(R.id.btnStart); bStop = (Button) findViewById(R.id.btnStop); 
+    //attaching onclicklistener to buttons
+bStart.setOnClickListener(this); 
+bStop.setOnClickListener(this); } 
+@Override 
+public void onClick(View view) { if (view == bStart) { 
+    //starting service
+startService(new Intent(this, MediaService.class)); } else if (view == bStop) { 
+    //stopping service
+stopService(new Intent(this, MediaService.class)); } 
+Add Service configuration in Manifest.XML file 
+<?xml version="1.0" encoding="utf-8"?> <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+    package="com.example.myservice">
+<application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" 
+android:supportsRtl="true" android:theme="@style/AppTheme"> <activity android:name=".MainActivity"> 
+            <intent-filter>
+                <action
+android:name="android.intent.action.MAIN" /> 
+<category android:name="android.intent.category.LAUNCHER" /> 
+</intent-filter> </activity> 
+<service android:name=".MediaService" /> </application> 
+</manifest> 
