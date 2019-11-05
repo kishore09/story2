@@ -1,0 +1,1170 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\froman\fcharset0 Times-Italic;\f4\fswiss\fcharset0 Arial-BoldMT;\f5\fswiss\fcharset0 ArialMT;
+\f6\fswiss\fcharset0 Arial-BoldItalicMT;\f7\fswiss\fcharset0 Arial-ItalicMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue109;\red255\green255\blue255;
+\red82\green0\blue103;\red109\green111\blue3;\red15\green112\blue1;\red0\green0\blue255;\red109\green109\blue109;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c50196;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c40000\c5490\c47843;\cssrgb\c50196\c50196\c0;\cssrgb\c0\c50196\c0;\cssrgb\c0\c0\c100000;\cssrgb\c50196\c50196\c50196;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+
+\f0\b\fs40 \cf2 \expnd0\expndtw0\kerning0
+Expens\
+Expense manager\
++++++++++++\
+MainActivity.java 
+\f1\b0\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 {{\NeXTGraphic page2image46881536.png \width2140 \height20 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 package 
+\f2\b0 \cf2 com.example.expensemanager; 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 import 
+\f2\b0 \cf2 androidx.appcompat.app.AppCompatActivity; 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 import 
+\f2\b0 \cf2 android.os.Bundle; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.view.View; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.widget.EditText; 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 import 
+\f2\b0 \cf2 android.widget.TextView; 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 import 
+\f2\b0 \cf2 java.io.BufferedReader; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 java.io.FileInputStream; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 java.io.FileNotFoundException; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 java.io.FileOutputStream; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 java.io.InputStreamReader; 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 public class 
+\f2\b0 \cf2 MainActivity 
+\f0\b \cf3 extends 
+\f2\b0 \cf2 AppCompatActivity \{ String 
+\f0\b \cf5 s1
+\f2\b0 \cf2 , 
+\f0\b \cf5 s2
+\f2\b0 \cf2 ; 
+\f1\fs24 \
+
+\f2\fs32 EditText 
+\f0\b \cf5 et1
+\f2\b0 \cf2 , 
+\f0\b \cf5 et2
+\f2\b0 \cf2 ; TextView 
+\f0\b \cf5 tv1
+\f2\b0 \cf2 ; 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 protected void 
+\f2\b0 \cf2 onCreate(Bundle savedInstanceState) \{ 
+\f0\b \cf3 super
+\f2\b0 \cf2 .onCreate(savedInstanceState); setContentView(R.layout.
+\f3\i \cf5 activity_main
+\f2\i0 \cf2 ); 
+\f0\b \cf5 et1
+\f2\b0 \cf2 =(EditText)findViewById(R.id.
+\f3\i \cf5 et_cat
+\f2\i0 \cf2 ); 
+\f0\b \cf5 et2
+\f2\b0 \cf2 =(EditText)findViewById(R.id.
+\f3\i \cf5 et_price
+\f2\i0 \cf2 ); 
+\f0\b \cf5 tv1
+\f2\b0 \cf2 =(TextView)findViewById(R.id.
+\f3\i \cf5 tv_output
+\f2\i0 \cf2 ); 
+\f1\fs24 \
+
+\f2\fs32 \} 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 public void 
+\f2\b0 \cf2 save (View view) \{ 
+\f0\b \cf5 s1 
+\f2\b0 \cf2 = 
+\f0\b \cf5 et1
+\f2\b0 \cf2 .getText().toString(); 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 s2 
+\f2\b0 \cf2 = 
+\f0\b \cf5 s1
+\f2\b0 \cf2 + 
+\f0\b \cf7 " "
+\f2\b0 \cf2 +
+\f0\b \cf5 et2
+\f2\b0 \cf2 .getText().toString()+
+\f0\b \cf7 "\cf3 \\n\cf7 "
+\f2\b0 \cf2 ; 
+\f0\b \cf3 try 
+\f2\b0 \cf2 \{ 
+\f1\fs24 \
+
+\f2\fs32 FileOutputStream fos = openFileOutput(
+\f0\b \cf7 "file1.txt"
+\f2\b0 \cf2 , 
+\f3\i \cf5 MODE_APPEND
+\f2\i0 \cf2 ); 
+\f1\fs24 \
+
+\f2\fs32 fos.write(
+\f0\b \cf5 s2
+\f2\b0 \cf2 .getBytes());\uc0\u8232 \} 
+\f0\b \cf3 catch 
+\f2\b0 \cf2 (FileNotFoundException e) \{ e.printStackTrace(); 
+\f1\fs24 \
+
+\f2\fs32 \}\uc0\u8232 
+\f0\b \cf3 catch 
+\f2\b0 \cf2 (Exception e)\{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f2\fs32 \cf2                     e.printStackTrace();\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+\cf2 \} \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 public void 
+\f2\b0 \cf2 load (View v) \{ 
+\f0\b \cf3 try 
+\f2\b0 \cf2 \{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf2 FileInputStream fis = openFileInput(
+\f0\b \cf7 "file1.txt"
+\f2\b0 \cf2 ); InputStreamReader isr = 
+\f0\b \cf3 new 
+\f2\b0 \cf2 InputStreamReader(fis); BufferedReader br = 
+\f0\b \cf3 new 
+\f2\b0 \cf2 BufferedReader(isr); StringBuilder sb = 
+\f0\b \cf3 new 
+\f2\b0 \cf2 StringBuilder(); 
+\f1\fs24 \
+
+\f2\fs32 String text; 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 while 
+\f2\b0 \cf2 ((text=br.readLine())!= 
+\f0\b \cf3 null
+\f2\b0 \cf2 ) \{ sb.append(text); 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf2 sb.append(
+\f0\b \cf7 "\cf3 \\n\cf7 "
+\f2\b0 \cf2 ); \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 tv1
+\f2\b0 \cf2 .setText (sb.toString()); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf2 \} 
+\f0\b \cf3 catch 
+\f2\b0 \cf2 (FileNotFoundException e) \{ e.printStackTrace(); 
+\f1\fs24 \
+
+\f2\fs32 \} 
+\f0\b \cf3 catch 
+\f2\b0 \cf2 (Exception e) \{ e.printStackTrace(); 
+\f1\fs24 \
+
+\f2\fs32 \}\uc0\u8232 \} 
+\f1\fs24 \
+
+\f2\fs32 \} 
+\f1\fs24 \cell \lastrow\row
+\pard\pardeftab720\sl440\sa240\partightenfactor0
+
+\f0\b\fs37\fsmilli18667 \cf2 Activity_main.xml 
+\f1\b0\fs24 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf2 {{\NeXTGraphic page3image46526272.png \width2062 \height20 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f3\i\fs32 \cf2 <?
+\f0\i0\b \cf8 xml version=\cf7 "1.0" \cf8 encoding=\cf7 "utf-8"
+\f3\i\b0 \cf2 ?> 
+\f2\i0 <
+\f0\b \cf3 androidx.constraintlayout.widget.ConstraintLayout \cf8 xmlns:\cf5 android\cf8 =\cf7 "http://schemas.android.com/apk/res/android" 
+\f1\b0\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f0\b\fs32 \cf8     xmlns:\cf5 app\cf8 =\cf7 "http://schemas.android.com/apk/res-auto"\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+\cf8 xmlns:\cf5 tools\cf8 =\cf7 "http://schemas.android.com/tools" \cf5 android\cf8 :layout_width=\cf7 "match_parent" \cf5 android\cf8 :layout_height=\cf7 "match_parent" \cf5 tools\cf8 :context=\cf7 ".MainActivity"
+\f2\b0 \cf2 > 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 TextView \cf5 android\cf8 :id=\cf7 "@+id/textView5" \cf5 android\cf8 :layout_width=\cf7 "252dp" \cf5 android\cf8 :layout_height=\cf7 "40dp" \cf5 android\cf8 :text=\cf7 "Expense Manager" 
+\f1\b0\fs24 \cf2 \cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 android\cf8 :textSize=\cf7 "25dp" \cf5 android\cf8 :textStyle=\cf7 "bold" \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.566" \cf5 app\cf8 :layout_constraintLeft_toLeftOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintRight_toRightOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.041" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 TextView \cf5 android\cf8 :id=\cf7 "@+id/textView" 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 android\cf8 :layout_width=\cf7 "80dp" \cf5 android\cf8 :layout_height=\cf7 "25dp" \cf5 android\cf8 :layout_marginStart=\cf7 "8dp" \cf5 android\cf8 :layout_marginEnd=\cf7 "8dp" \cf5 android\cf8 :layout_marginBottom=\cf7 "8dp" \cf5 android\cf8 :text=\cf7 "CATEGORY" \cf5 android\cf8 :textSize=\cf7 "15dp" \cf5 android\cf8 :textStyle=\cf7 "bold" \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.088" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.124" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 TextView\uc0\u8232 \cf5 android\cf8 :id=\cf7 "@+id/textView2" \cf5 android\cf8 :layout_width=\cf7 "49dp" \cf5 android\cf8 :layout_height=\cf7 "31dp" \cf5 android\cf8 :layout_marginStart=\cf7 "8dp" \cf5 android\cf8 :layout_marginBottom=\cf7 "8dp" \cf5 android\cf8 :text=\cf7 "PRICE" \cf5 android\cf8 :textSize=\cf7 "15dp" \cf5 android\cf8 :textStyle=\cf7 "bold" 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.168" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.22" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 Button\uc0\u8232 \cf5 android\cf8 :id=\cf7 "@+id/insert_btn" \cf5 android\cf8 :layout_width=\cf7 "wrap_content" 
+\f1\b0\fs24 \cf2 \cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f0\b\fs32 \cf5 android\cf8 :layout_height=\cf7 "wrap_content"\
+\cf5 android\cf8 :layout_marginStart=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginTop=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginEnd=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginBottom=\cf7 "8dp"\
+\cf5 android\cf8 :onClick=\cf7 "save"\
+\cf5 android\cf8 :text=\cf7 "SAVE"\
+\cf5 android\cf8 :textSize=\cf7 "15dp"\
+\cf5 android\cf8 :textStyle=\cf7 "bold"\
+\cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent"\
+\cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent"\
+\cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.267"\
+\cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent"\cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+\cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.347" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 Button\uc0\u8232 \cf5 android\cf8 :id=\cf7 "@+id/report_btn" \cf5 android\cf8 :layout_width=\cf7 "wrap_content" \cf5 android\cf8 :layout_height=\cf7 "wrap_content" \cf5 android\cf8 :layout_marginStart=\cf7 "8dp" \cf5 android\cf8 :layout_marginTop=\cf7 "8dp" \cf5 android\cf8 :layout_marginEnd=\cf7 "8dp" \cf5 android\cf8 :layout_marginBottom=\cf7 "8dp" \cf5 android\cf8 :onClick=\cf7 "load"\uc0\u8232 \cf5 android\cf8 :text=\cf7 "LOAD"\uc0\u8232 \cf5 android\cf8 :textSize=\cf7 "15dp" \cf5 android\cf8 :textStyle=\cf7 "bold" \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.742" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.351" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 TextView \cf5 android\cf8 :id=\cf7 "@+id/tv_output" 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f0\b\fs32 \cf5 android\cf8 :layout_width=\cf7 "281dp"\
+\cf5 android\cf8 :layout_height=\cf7 "129dp"\
+\cf5 android\cf8 :layout_marginStart=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginTop=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginEnd=\cf7 "8dp"\
+\cf5 android\cf8 :layout_marginBottom=\cf7 "8dp"\
+\cf5 android\cf8 :textSize=\cf7 "25dp"\
+\cf5 android\cf8 :textStyle=\cf7 "bold"\
+\cf5 android\cf8 :hint=\cf7 "result"\
+\cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent"\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+\cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.537" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.713" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 EditText\uc0\u8232 \cf5 android\cf8 :id=\cf7 "@+id/et_cat" \cf5 android\cf8 :layout_width=\cf7 "202dp" \cf5 android\cf8 :layout_height=\cf7 "40dp" \cf5 android\cf8 :layout_marginStart=\cf7 "8dp" \cf5 android\cf8 :layout_marginTop=\cf7 "8dp" \cf5 android\cf8 :layout_marginEnd=\cf7 "8dp" 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 android\cf8 :layout_marginBottom=\cf7 "8dp" \cf5 android\cf8 :ems=\cf7 "10" \cf5 android\cf8 :inputType=\cf7 "textPersonName" \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.711" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.116" 
+\f2\b0 \cf2 /> 
+\f1\fs24 \
+
+\f2\fs32 <
+\f0\b \cf3 EditText\uc0\u8232 \cf5 android\cf8 :id=\cf7 "@+id/et_price" \cf5 android\cf8 :layout_width=\cf7 "193dp" \cf5 android\cf8 :layout_height=\cf7 "38dp" \cf5 android\cf8 :layout_marginStart=\cf7 "8dp" \cf5 android\cf8 :layout_marginEnd=\cf7 "8dp" \cf5 android\cf8 :layout_marginBottom=\cf7 "8dp" \cf5 android\cf8 :ems=\cf7 "10" \cf5 android\cf8 :inputType=\cf7 "textPersonName" \cf5 app\cf8 :layout_constraintBottom_toBottomOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintEnd_toEndOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintHorizontal_bias=\cf7 "0.699" \cf5 app\cf8 :layout_constraintStart_toStartOf=\cf7 "parent" \cf5 app\cf8 :layout_constraintTop_toTopOf=\cf7 "parent" 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf5 app\cf8 :layout_constraintVertical_bias=\cf7 "0.223" 
+\f2\b0 \cf2 /> </
+\f0\b \cf3 androidx.constraintlayout.widget.ConstraintLayout
+\f2\b0 \cf2 > 
+\f1\fs24 \
+\
+\cell \lastrow\row
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+
+\f0\b\fs40 \cf2 +++++++++++\
+health\
+\
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+\cf2 MainActivity.java 
+\f1\b0\fs24 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 package 
+\f5\b0 \cf2 com.example.healthmonitor; 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 import 
+\f5\b0 \cf2 androidx.appcompat.app.AppCompatActivity; 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.database.Cursor;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.os.Bundle;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.view.View; 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 import 
+\f5\b0 \cf2 android.widget.EditText; 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.widget.TextView; 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.widget.Toast; 
+\f1\fs24 \cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 public class 
+\f5\b0 \cf2 MainActivity 
+\f4\b \cf3 extends 
+\f5\b0 \cf2 AppCompatActivity \{ DatabaseHelper 
+\f4\b \cf5 db
+\f5\b0 \cf2 ;\uc0\u8232 EditText 
+\f4\b \cf5 name
+\f5\b0 \cf2 ;\uc0\u8232 EditText 
+\f4\b \cf5 age
+\f5\b0 \cf2 ; 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 EditText 
+\f4\b \cf5 hb
+\f5\b0 \cf2 ; EditText 
+\f4\b \cf5 sugar
+\f5\b0 \cf2 ; TextView 
+\f4\b \cf5 tv
+\f5\b0 \cf2 ; 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 protected void 
+\f5\b0 \cf2 onCreate(Bundle savedInstanceState) \{ 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 super
+\f5\b0 \cf2 .onCreate(savedInstanceState); setContentView(R.layout.
+\f6\i\b \cf5 activity_main
+\f5\i0\b0 \cf2 );\uc0\u8232 
+\f4\b \cf5 db 
+\f5\b0 \cf2 = 
+\f4\b \cf3 new 
+\f5\b0 \cf2 DatabaseHelper(
+\f4\b \cf3 this
+\f5\b0 \cf2 );\uc0\u8232 
+\f4\b \cf5 name 
+\f5\b0 \cf2 = (EditText) findViewById(R.id.
+\f6\i\b \cf5 et_name
+\f5\i0\b0 \cf2 ); 
+\f4\b \cf5 age 
+\f5\b0 \cf2 = (EditText) findViewById(R.id.
+\f6\i\b \cf5 et_age
+\f5\i0\b0 \cf2 ); 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf5 hb 
+\f5\b0 \cf2 = (EditText) findViewById(R.id.
+\f6\i\b \cf5 et_hb
+\f5\i0\b0 \cf2 );\uc0\u8232 
+\f4\b \cf5 sugar 
+\f5\b0 \cf2 = (EditText) findViewById(R.id.
+\f6\i\b \cf5 et_sugar
+\f5\i0\b0 \cf2 ); 
+\f4\b \cf5 tv
+\f5\b0 \cf2 = (TextView)findViewById(R.id.
+\f6\i\b \cf5 tv_report
+\f5\i0\b0 \cf2 ); 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 \}\uc0\u8232 
+\f4\b \cf3 public void 
+\f5\b0 \cf2 insert (View view) \{ 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 boolean 
+\f5\b0 \cf2 status = 
+\f4\b \cf5 db
+\f5\b0 \cf2 .insert(
+\f4\b \cf5 name
+\f5\b0 \cf2 .getText().toString(), Integer.
+\f7\i parseInt
+\f5\i0 (
+\f4\b \cf5 age
+\f5\b0 \cf2 .getText().toString()), Integer.
+\f7\i parseInt
+\f5\i0 (
+\f4\b \cf5 hb
+\f5\b0 \cf2 .getText().toString()), Integer.
+\f7\i parseInt
+\f5\i0 (
+\f4\b \cf5 sugar
+\f5\b0 \cf2 .getText().toString())); 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 \}\uc0\u8232 
+\f4\b \cf3 public void 
+\f5\b0 \cf2 report(View view) \{ 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf2 Cursor c = 
+\f4\b \cf5 db
+\f5\b0 \cf2 .select(); 
+\f4\b \cf3 if 
+\f5\b0 \cf2 (c.getCount() ==\cf8 0\cf2 ) 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 return
+\f5\b0 \cf2 ;\uc0\u8232 StringBuffer buf = 
+\f4\b \cf3 new 
+\f5\b0 \cf2 StringBuffer(); 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 while 
+\f5\b0 \cf2 (c.moveToNext()) \{\uc0\u8232 buf.append (
+\f4\b \cf7 "Name: "
+\f5\b0 \cf2 +c.getString(\cf8 1\cf2 )); buf.append (
+\f4\b \cf7 " Age: "
+\f5\b0 \cf2 +c.getString(\cf8 2\cf2 )); buf.append (
+\f4\b \cf7 " Hemoglobin: "
+\f5\b0 \cf2 +c.getString(\cf8 3\cf2 )); buf.append (
+\f4\b \cf7 " Sugar: "
+\f5\b0 \cf2 +c.getString(\cf8 4\cf2 )); 
+\f1\fs24 \cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth11736\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf2 buf.append(
+\f4\b \cf7 "\cf3 \\n\cf7 "
+\f5\b0 \cf2 ); \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf5 tv
+\f5\b0 \cf2 .setText(buf); \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 public void 
+\f5\b0 \cf2 cleartext (View view) \{ 
+\f4\b \cf5 name
+\f5\b0 \cf2 .setText(
+\f4\b \cf7 ""
+\f5\b0 \cf2 ); 
+\f4\b \cf5 age
+\f5\b0 \cf2 .setText(
+\f4\b \cf7 ""
+\f5\b0 \cf2 );\uc0\u8232 
+\f4\b \cf5 hb
+\f5\b0 \cf2 .setText(
+\f4\b \cf7 ""
+\f5\b0 \cf2 ); 
+\f4\b \cf5 sugar
+\f5\b0 \cf2 .setText(
+\f4\b \cf7 ""
+\f5\b0 \cf2 ); 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth11736\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf2 \} \} 
+\f1\fs24 \cell \lastrow\row
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+
+\f0\b\fs40 \cf2 DatabaseHelper.java 
+\f1\b0\fs24 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth11736\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+\cf2 {{\NeXTGraphic page3image46475968.png \width2529 \height20 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 package 
+\f5\b0 \cf2 com.example.healthmonitor;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.content.ContentValues;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.content.Context;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.database.Cursor;\uc0\u8232 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.database.sqlite.SQLiteDatabase; 
+\f4\b \cf3 import 
+\f5\b0 \cf2 android.database.sqlite.SQLiteOpenHelper; 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 public class 
+\f5\b0 \cf2 DatabaseHelper 
+\f4\b \cf3 extends 
+\f5\b0 \cf2 SQLiteOpenHelper \{ DatabaseHelper (Context context) \{\uc0\u8232 
+\f4\b \cf3 super
+\f5\b0 \cf2 (context, 
+\f4\b \cf7 "Health.db"
+\f5\b0 \cf2 ,
+\f4\b \cf3 null
+\f5\b0 \cf2 ,\cf8 1\cf2 ); 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 public void 
+\f5\b0 \cf2 onCreate (SQLiteDatabase sqLiteDatabase) \{ sqLiteDatabase.execSQL(
+\f4\b \cf7 "CREATE TABLE LAB ( PATID integer 
+\f1\b0\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf7 PRIMARY KEY AUTOINCREMENT, PANAME TEXT, AGE INTEGER, HM INTEGER, SUGAR INTEGER );"
+\f5\b0 \cf2 ); 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 public void 
+\f5\b0 \cf2 onUpgrade (SQLiteDatabase sqLiteDatabase, 
+\f4\b \cf3 int 
+\f5\b0 \cf2 i, 
+\f4\b \cf3 int 
+\f5\b0 \cf2 i1) \{ sqLiteDatabase.execSQL(
+\f4\b \cf7 "DROP TABLE IF EXISTS LAB "
+\f5\b0 \cf2 ); onCreate(sqLiteDatabase); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f5\fs37\fsmilli18667 \cf2 \} 
+\f1\fs24 \cell \lastrow\row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 public boolean 
+\f5\b0 \cf2 insert (String name, 
+\f4\b \cf3 int 
+\f5\b0 \cf2 age, 
+\f4\b \cf3 int 
+\f5\b0 \cf2 hb, 
+\f4\b \cf3 int 
+\f5\b0 \cf2 sug) \{ SQLiteDatabase db = 
+\f4\b \cf3 this
+\f5\b0 \cf2 .getWritableDatabase(); ContentValues cv = 
+\f4\b \cf3 new 
+\f5\b0 \cf2 ContentValues(); cv.put(
+\f4\b \cf7 "PANAME"
+\f5\b0 \cf2 , name); 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 cv.put(
+\f4\b \cf7 "AGE"
+\f5\b0 \cf2 , age); cv.put(
+\f4\b \cf7 "HM"
+\f5\b0 \cf2 ,hb); cv.put(
+\f4\b \cf7 "SUGAR"
+\f5\b0 \cf2 ,sug); 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 long 
+\f5\b0 \cf2 status = db.insert(
+\f4\b \cf7 "LAB"
+\f5\b0 \cf2 ,
+\f4\b \cf3 null
+\f5\b0 \cf2 ,cv); 
+\f4\b \cf3 if 
+\f5\b0 \cf2 (status == -\cf8 1\cf2 ) 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl440\sa240\partightenfactor0
+
+\f4\b\fs37\fsmilli18667 \cf3 return false
+\f5\b0 \cf2 ; 
+\f4\b \cf3 else 
+\f1\b0\fs24 \cf2 \
+
+\f4\b\fs37\fsmilli18667 \cf3 return true
+\f5\b0 \cf2 ; \} 
+\f1\fs24 \
+
+\f4\b\fs37\fsmilli18667 \cf3 public 
+\f5\b0 \cf2 Cursor select() \{\uc0\u8232 SQLiteDatabase db = 
+\f4\b \cf3 this
+\f5\b0 \cf2 .getWritableDatabase(); Cursor cr = db.rawQuery(
+\f4\b \cf7 "SELECT * FROM LAB"
+\f5\b0 \cf2 , 
+\f4\b \cf3 null
+\f5\b0 \cf2 ); 
+\f4\b \cf3 return 
+\f5\b0 \cf2 cr; 
+\f1\fs24 \
+
+\f5\fs37\fsmilli18667 \} \} 
+\f1\fs24 \
+\cell \lastrow\row
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+
+\f0\b\fs40 \cf2 +++++++++++\
+\
+Maps\
+\
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\f1\b0\fs26\fsmilli13333 \cf2 Activity_main.xml 
+\fs24 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf2 \cb4 <?\cf8 xml version\cf7 ="1.0" \cf8 encoding\cf7 ="utf-8"\cf2 ?> <\cf3 androidx.constraintlayout.widget.ConstraintLayout \cf8 xmlns:\cf5 android\cf7 ="http://schemas.android.com/apk/res/android" 
+\fs24 \cf2 \cb1 \
+
+\fs21\fsmilli10667 \cf8 \cb4 xmlns:\cf5 app\cf7 ="http://schemas.android.com/apk/res-auto" \cf8 xmlns:\cf5 tools\cf7 ="http://schemas.android.com/tools" \cf5 android\cf8 :layout_width\cf7 ="match_parent" \cf5 android\cf8 :layout_height\cf7 ="match_parent" \cf5 tools\cf8 :context\cf7 =".MainActivity"\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 fragment\cb1 \uc0\u8232 \cf5 \cb4 android\cf8 :layout_width\cf7 ="match_parent" \cf5 android\cf8 :layout_height\cf7 ="match_parent" \cf5 android\cf8 :id\cf7 ="@+id/google_map" \cf5 android\cf8 :name\cf7 ="com.google.android.gms.maps.SupportMapFragment"\cf2 /> 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 </\cf3 androidx.constraintlayout.widget.ConstraintLayout\cf2 > 
+\fs24 \cb1 \
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\fs26\fsmilli13333 \cf2 MainActivity.java 
+\fs24 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf3 \cb4 package \cf2 com.m.collegelocation; 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cf3 \cb4 import \cf2 androidx.annotation.\cf6 NonNull\cf2 ;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 androidx.appcompat.app.AppCompatActivity; \cf3 import \cf2 androidx.core.app.ActivityCompat;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 androidx.fragment.app.FragmentActivity; 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cf3 \cb4 import \cf2 android.Manifest;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 android.content.pm.PackageManager; \cf3 import \cf2 android.location.Location;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 android.os.Bundle;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 android.widget.Toast; 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cf3 \cb4 import \cf2 com.google.android.gms.location.FusedLocationProviderClient; \cf3 import \cf2 com.google.android.gms.location.LocationServices;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 com.google.android.gms.maps.CameraUpdate;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 com.google.android.gms.maps.CameraUpdateFactory; 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cf3 \cb4 import \cf2 com.google.android.gms.maps.GoogleMap;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 com.google.android.gms.maps.OnMapReadyCallback; \cf3 import \cf2 com.google.android.gms.maps.SupportMapFragment; \cf3 import \cf2 com.google.android.gms.maps.model.LatLng;\cb1 \uc0\u8232 \cf3 \cb4 import \cf2 com.google.android.gms.maps.model.MarkerOptions; \cf3 import \cf2 com.google.android.gms.tasks.OnSuccessListener; \cf3 import \cf2 com.google.android.gms.tasks.Task; 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cf3 \cb4 import \cf2 java.security.KeyStore;\cb1 \uc0\u8232 \cf3 \cb4 public class \cf2 MainActivity \cf3 extends \cf2 FragmentActivity \cf3 implements \cf2 OnMapReadyCallback \{ 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 GoogleMap \cf5 nmap\cf2 ; 
+\fs24 \cb1 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf6 \cb4 @Override 
+\fs24 \cf2 \cb1 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf3 \cb4 protected void \cf2 onCreate(Bundle savedInstanceState) \{ \cf3 super\cf2 .onCreate(savedInstanceState); setContentView(R.layout.\cf5 activity_main\cf2 ); SupportMapFragment mapFragment = (SupportMapFragment) 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 getSupportFragmentManager() .findFragmentById(R.id.\cf5 google_map\cf2 ); 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 mapFragment.getMapAsync(\cf3 this\cf2 ); \} 
+\fs24 \cb1 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf6 \cb4 @Override 
+\fs24 \cf2 \cb1 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf3 \cb4 public void \cf2 onMapReady(GoogleMap googleMap) \{\cb1 \uc0\u8232 \cf5 \cb4 nmap \cf2 = googleMap; \cf5 nmap\cf2 .getUiSettings().setZoomControlsEnabled(\cf3 true\cf2 ); \cf5 nmap\cf2 .setMyLocationEnabled(\cf3 true\cf2 ); 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 \} \} 
+\fs24 \cb1 \
+\pard\pardeftab720\sl300\sa240\partightenfactor0
+
+\fs26\fsmilli13333 \cf2 manifest.xml 
+\fs24 \
+\pard\pardeftab720\sl260\sa240\partightenfactor0
+
+\fs21\fsmilli10667 \cf2 \cb4 <?\cf8 xml version\cf7 ="1.0" \cf8 encoding\cf7 ="utf-8"\cf2 ?>\cb1 \uc0\u8232 \cb4 <\cf3 manifest \cf8 xmlns:\cf5 android\cf7 ="http://schemas.android.com/apk/res/android" 
+\fs24 \cf2 \cb1 \
+
+\fs21\fsmilli10667 \cf8 \cb4 package\cf7 ="com.m.collegelocation"\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 uses-permission \cf5 android\cf8 :name\cf7 ="android.permission.INTERNET"\cf2 /> <\cf3 uses-permission \cf5 android\cf8 :name\cf7 ="android.permission.ACCESS_COARSE_LOCATION"\cf2 /> <\cf3 uses-permission \cf5 android\cf8 :name\cf7 ="android.permission.ACCESS_FINE_LOCATION"\cf2 /> <\cf3 application 
+\fs24 \cf2 \cb1 \
+
+\fs21\fsmilli10667 \cf5 \cb4 android\cf8 :allowBackup\cf7 ="true" \cf5 android\cf8 :icon\cf7 ="@mipmap/ic_launcher" \cf5 android\cf8 :label\cf7 ="@string/app_name" \cf5 android\cf8 :roundIcon\cf7 ="@mipmap/ic_launcher_round" \cf5 android\cf8 :supportsRtl\cf7 ="true" \cf5 android\cf8 :theme\cf7 ="@style/AppTheme"\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 meta-data \cf5 android\cf8 :name\cf7 ="com.google.android.geo.API_KEY" \cf5 android\cf8 :value\cf7 ="@string/map_key" \cf2 /> 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 activity \cf5 android\cf8 :name\cf7 =".MainActivity"\cf2 > <\cf3 intent-filter\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 action \cf5 android\cf8 :name\cf7 ="android.intent.action.MAIN" \cf2 /> 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 category \cf5 android\cf8 :name\cf7 ="android.intent.category.LAUNCHER" \cf2 /> </\cf3 intent-filter\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 </\cf3 activity\cf2 > </\cf3 application\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 </\cf3 manifest\cf2 > 
+\fs24 \cb1 \
+
+\fs21\fsmilli10667 \cb4 <\cf3 resources\cf2 >\cb1 \uc0\u8232 \cb4 <\cf3 string \cf8 name\cf7 ="app_name"\cf2 >CollegeLocation</\cf3 string\cf2 > <\cf3 string \cf8 name\cf7 ="map_key" 
+\fs24 \cf2 \cb1 \
+
+\fs21\fsmilli10667 \cf8 \cb4 translatable\cf7 ="false"\cf2 >AIzaSyCz00CTIhpwtE8x6dS1ca_ttZ9kgrowPLE</\cf3 string\cf2 > </\cf3 resources\cf2 > 
+\fs24 \cb1 \
+\pard\pardeftab720\sl460\sa240\partightenfactor0
+
+\f0\b\fs40 \cf2 +++++++++++\
+\
+\pard\pardeftab720\sl480\sa240\partightenfactor0
+
+\fs42\fsmilli21333 \cf2 Create new class file and name it as MediaService.\uc0\u8232 Enter the following program in the MediaService.java file 
+\f1\b0\fs24 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 import 
+\f2\b0 \cf2 android.app.Service; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.content.Intent; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.media.MediaPlayer; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.os.IBinder; 
+\f0\b \cf3 import 
+\f2\b0 \cf2 android.provider.Settings; 
+\f1\fs24 \
+
+\f0\b\fs29\fsmilli14667 \cf3 import 
+\f2\b0 \cf2 androidx.annotation.\cf6 Nullable\cf2 ; 
+\f0\b \cf3 public class 
+\f2\b0 \cf2 MediaService 
+\f0\b \cf3 extends 
+\f2\b0 \cf2 Service \{ 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 private 
+\f2\b0 \cf2 MediaPlayer 
+\f0\b \cf5 player
+\f2\b0 \cf2 ; 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f2\fs29\fsmilli14667 \cf6 @Nullable\uc0\u8232 @Override\u8232 
+\f0\b \cf3 public 
+\f2\b0 \cf2 IBinder onBind(Intent intent) \{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 return null
+\f2\b0 \cf2 ; \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f2\fs29\fsmilli14667 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 public int 
+\f2\b0 \cf2 onStartCommand(Intent intent, 
+\f0\b \cf3 int 
+\f2\b0 \cf2 flags, 
+\f0\b \cf3 int 
+\f2\b0 \cf2 startId) \{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\f3\i\fs29\fsmilli14667 \cf9             //getting systems default ringtone\
+\pard\intbl\itap1\pardeftab720\sl400\sa240\partightenfactor0
+
+\f0\i0\b\fs34\fsmilli17333 \cf5 player 
+\f2\b0 \cf2 = MediaPlayer.
+\f3\i create
+\f2\i0 (
+\f0\b \cf3 this
+\f2\b0 \cf2 , Settings.System.
+\f3\i \cf5 DEFAULT_RINGTONE_URI
+\f2\i0 \cf2 ); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f3\i\fs29\fsmilli14667 \cf9 // 
+\f0\i0\b \cf5 player 
+\f2\b0 \cf2 = MediaPlayer.
+\f3\i create
+\f2\i0 (
+\f0\b \cf3 this
+\f2\b0 \cf2 ,R.raw.
+\f3\i \cf5 song3
+\f2\i0 \cf2 ); 
+\f0\b \cf5 player
+\f2\b0 \cf2 .setLooping(
+\f0\b \cf3 true
+\f2\b0 \cf2 ); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\partightenfactor0
+
+\f3\i\fs29\fsmilli14667 \cf9             //staring the player\
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\i0\b \cf5 player
+\f2\b0 \cf2 .start(); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f3\i\fs29\fsmilli14667 \cf9 //start sticky means service will be explicity started and stopped 
+\f1\i0\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 return 
+\f3\i\b0 \cf5 START_STICKY
+\f2\i0 \cf2 ; \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f2\fs29\fsmilli14667 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 public void 
+\f2\b0 \cf2 onDestroy() \{ 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b\fs29\fsmilli14667 \cf3 super
+\f2\b0 \cf2 .onDestroy();\uc0\u8232 
+\f3\i \cf9 //stopping the player when service is destroyed 
+\f0\i0\b \cf5 player
+\f2\b0 \cf2 .stop(); 
+\f1\fs24 \
+
+\f2\fs29\fsmilli14667 \} \} 
+\f1\fs24 \cell \lastrow\row
+\pard\pardeftab720\sl480\sa240\partightenfactor0
+
+\f0\b\fs42\fsmilli21333 \cf2 Add the Changes in MainActivity.java for button click 
+\f1\b0\fs24 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 public class 
+\f2\b0 \cf2 MainActivity 
+\f0\b \cf3 extends 
+\f2\b0 \cf2 AppCompatActivity 
+\f0\b \cf3 implements 
+\f2\b0 \cf2 View.OnClickListener \{ 
+\f1\fs24 \
+
+\f0\b\fs32 \cf3 private 
+\f2\b0 \cf2 Button 
+\f0\b \cf5 bStart
+\f2\b0 \cf2 ; 
+\f0\b \cf3 private 
+\f2\b0 \cf2 Button 
+\f0\b \cf5 bStop
+\f2\b0 \cf2 ; 
+\f1\fs24 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf2 \} \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 protected void 
+\f2\b0 \cf2 onCreate(Bundle savedInstanceState) \{ 
+\f0\b \cf3 super
+\f2\b0 \cf2 .onCreate(savedInstanceState); setContentView(R.layout.
+\f3\i \cf5 activity_main
+\f2\i0 \cf2 ); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f3\i\fs32 \cf9     //getting buttons from xml\
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\i0\b \cf5 bStart 
+\f2\b0 \cf2 = (Button) findViewById(R.id.
+\f3\i \cf5 btnStart
+\f2\i0 \cf2 ); 
+\f0\b \cf5 bStop 
+\f2\b0 \cf2 = (Button) findViewById(R.id.
+\f3\i \cf5 btnStop
+\f2\i0 \cf2 ); 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f3\i\fs32 \cf9     //attaching onclicklistener to buttons\
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\i0\b \cf5 bStart
+\f2\b0 \cf2 .setOnClickListener(
+\f0\b \cf3 this
+\f2\b0 \cf2 ); 
+\f1\fs24 \
+
+\f0\b\fs32 \cf5 bStop
+\f2\b0 \cf2 .setOnClickListener(
+\f0\b \cf3 this
+\f2\b0 \cf2 ); \} 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\fs32 \cf6 @Override 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf3 public void 
+\f2\b0 \cf2 onClick(View view) \{ 
+\f0\b \cf3 if 
+\f2\b0 \cf2 (view == 
+\f0\b \cf5 bStart
+\f2\b0 \cf2 ) \{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f3\i\fs32 \cf9     //starting service\
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\i0 \cf2 startService(
+\f0\b \cf3 new 
+\f2\b0 \cf2 Intent(
+\f0\b \cf3 this
+\f2\b0 \cf2 , MediaService.
+\f0\b \cf3 class
+\f2\b0 \cf2 )); \} 
+\f0\b \cf3 else if 
+\f2\b0 \cf2 (view == 
+\f0\b \cf5 bStop
+\f2\b0 \cf2 ) \{ 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl360\partightenfactor0
+
+\f3\i\fs32 \cf9     //stopping service\
+\pard\intbl\itap1\pardeftab720\sl360\sa240\partightenfactor0
+
+\f2\i0 \cf2 stopService(
+\f0\b \cf3 new 
+\f2\b0 \cf2 Intent(
+\f0\b \cf3 this
+\f2\b0 \cf2 , MediaService.
+\f0\b \cf3 class
+\f2\b0 \cf2 )); \} 
+\f1\fs24 \cell \lastrow\row
+\pard\pardeftab720\sl480\sa240\partightenfactor0
+
+\f0\b\fs42\fsmilli21333 \cf2 Add Service configuration in Manifest.XML file 
+\f1\b0\fs24 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrs\brdrw10\brdrcf2 \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl400\sa240\partightenfactor0
+
+\f3\i\fs34\fsmilli17333 \cf2 <?
+\f2\i0 \cf8 xml version=\cf7 "1.0" \cf8 encoding=\cf7 "utf-8"
+\f3\i \cf2 ?>\uc0\u8232 
+\f2\i0 <\cf3 manifest \cf8 xmlns:\cf5 android\cf8 =\cf7 "http://schemas.android.com/apk/res/android" 
+\f1\fs24 \cf2 \
+\pard\intbl\itap1\pardeftab720\sl380\partightenfactor0
+
+\f2\fs34\fsmilli17333 \cf8     package=\cf7 "com.example.myservice"\cf2 >\
+\pard\intbl\itap1\pardeftab720\sl400\sa240\partightenfactor0
+
+\f0\b \cf2 <\cf3 application\uc0\u8232 
+\f2\b0 \cf5 android\cf8 :allowBackup=\cf7 "true" \cf5 android\cf8 :icon=\cf7 "@mipmap/ic_launcher" \cf5 android\cf8 :label=\cf7 "@string/app_name" \cf5 android\cf8 :roundIcon=\cf7 "@mipmap/ic_launcher_round" 
+\f1\fs24 \cf2 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clcbpat4 \clwWidth15640\clftsWidth3 \clbrdrt\brdrs\brdrw10\brdrcf2 \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\sl380\sa240\partightenfactor0
+
+\f2\fs34\fsmilli17333 \cf5 android\cf8 :supportsRtl=\cf7 "true" \cf5 android\cf8 :theme=\cf7 "@style/AppTheme"\cf2 > 
+\f0\b <\cf3 activity 
+\f2\b0 \cf5 android\cf8 :name=\cf7 ".MainActivity"\cf2 > 
+\f1\fs24 \
+\pard\intbl\itap1\pardeftab720\sl380\partightenfactor0
+
+\f2\fs34\fsmilli17333 \cf2             <\cf3 intent-filter\cf2 >\
+                <\cf3 action\
+\pard\intbl\itap1\pardeftab720\sl380\sa240\partightenfactor0
+\cf5 android\cf8 :name=\cf7 "android.intent.action.MAIN" \cf2 /> 
+\f1\fs24 \
+
+\f2\fs34\fsmilli17333 <\cf3 category \cf5 android\cf8 :name=\cf7 "android.intent.category.LAUNCHER" \cf2 /> 
+\f1\fs24 \
+
+\f2\fs34\fsmilli17333 </\cf3 intent-filter\cf2 > 
+\f0\b </\cf3 activity\cf2 > 
+\f1\b0\fs24 \
+\pard\intbl\itap1\pardeftab720\sl480\sa240\partightenfactor0
+
+\f0\b\fs42\fsmilli21333 \cf2 <service android:name=".MediaService" /> 
+\fs34\fsmilli17333 </\cf3 application\cf2 > 
+\f1\b0\fs24 \
+\pard\intbl\itap1\pardeftab720\sl380\sa240\partightenfactor0
+
+\f2\fs34\fsmilli17333 \cf2 </\cf3 manifest\cf2 > 
+\f1\fs24 \cell \lastrow\row
+}
